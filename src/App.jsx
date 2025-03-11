@@ -4,14 +4,19 @@ import { CITY_DATA } from "./utils/data";
 import "./utils/types";
 
 /*
-  We have an app for displaying cities with their current time and temperature. However, the app in unfinished.
-  We would like you to implement to the remaining features and finish the app for us.
+  Task: Render City Data
+
+  - The `CITY_DATA` list contains objects with city details.
+  - Your task is to render each object as a `Card` component.
+  - The `Card` component takes a single prop: `city`, which represents an individual city object.
 */
 
 function App() {
   return (
     <main className="container">
-      {/* Uncomment the following to see how the cards will look in their different states */}
+      {/* Example: Light and Dark Mode Card Layouts */}
+      {/* Uncomment this section to preview how cards should be styled */}
+
       {/* <article className="card">
           <span className="card__icon">☀️</span>
           <h1 className="card__city">Edmonton</h1>
@@ -27,22 +32,7 @@ function App() {
           <p className="card__temperature">19&deg; C</p>
         </article> */}
 
-      { // prettier-ignore
-
-        /*
-        The data for each of the cities is in a variable called CITY_DATA, which is a list of objects,
-        each of which contains info about a city. You can find the list in utils/data.js
-        
-        Your job is to render each item in that list using the Card component.
-
-        The card component takes only one prop:
-          1) city - These are the items in the CITY_DATA list. You must render these use the Card component.
-        */
-
-        }
-      {CITY_DATA.map((city) => (
-        <Card key={city.id} city={city} />
-      ))}
+      {/* TODO: Render each city in CITY_DATA using the Card component */}
     </main>
   );
 }

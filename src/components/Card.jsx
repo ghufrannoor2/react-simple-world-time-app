@@ -5,26 +5,18 @@ import "./Card.css";
 import "../utils/types.js";
 
 /*
-  You need to implement the functionality to switch the color theme of the card component based on the time.
-  You can do this using a util function called isDay() which has already been imported for you.
+  Task: Complete the Card Component
 
-  This function accepts the time as a string (converting the time to a string has already been taken care of for you),
-  as well as the object of sunrise and sunset times from the mock data.
-  
-  You should create an additional piece of state that stores the current value indicating whether it is daytime or not
-  (by calling the isDay() function), and conditionally render the component based on this.
+  - Ensure the country name is displayed along with the city name.
+  - Implement the dynamic theme switching based on day/night.
+  - Use the `isDay()` function to determine whether it is daytime or nighttime.
+  - Clicking the sun/moon icon should toggle the theme.
 
-  Remember that the component has an interval handler to continuously update the time, so you will need to recalculate
-  this variable whenever the time is updated.
-
-  Additionally, some of the data has not been rendered from the city object. Please render the missing data as well.
-
-  Also, write a small function for testing purposes that changes the theme of the card whenever the user clicks on the sun/moon icon on the card. Additionally, if you have time, add CSS styles to .card__icon so that:
-    1 - The cursor is set to pointer
-    2 - When you hover over it it increases to 1.5x size
-    3 - The hover effect has a smooth transition
-  
-  Finally, the current implemnentation of the isDay function just returns true or false randomly. Please complete the implementation of isDay(). It is located in helpers.js
+  Additional styling improvements:
+  - Add hover effects to `.card__icon`:
+    - Make the cursor a pointer.
+    - Increase size to **1.5x** on hover.
+    - Ensure a smooth transition effect.
 */
 
 /**
@@ -38,14 +30,17 @@ export const Card = ({ city }) => {
 
   // Set up the time state and calculate it initially
   const [time, setTime] = useState(calculateCurrentTime());
-  // Additional state for determining whether it is daytime or not...
 
-  const testFunction = () => {};
+  // TODO: Create a state variable to track if it's day or night using isDay()
+
+  // TODO: Implement a function that toggles the theme when clicking the icon
 
   useEffect(() => {
     // Interval that runs every 15 seconds and updates the current time
     const interval = setInterval(() => {
       setTime(calculateCurrentTime());
+
+      // TODO: Update the day/night state here as well
     }, TIME_INTERVAL);
 
     return () => {
@@ -56,10 +51,16 @@ export const Card = ({ city }) => {
 
   return (
     // prettier-ignore
-    <article className="card"> {/* You should use the card--dark class in addition to the card class to get the dark styles */}
-      <span className="card__icon" onClick={testFunction}>☀️</span> {/* You conditionally render the icon as either ☀️ or 🌙 based on the time */}
+    <article className="card">
+    {/* TODO: Conditionally apply 'card--dark' class for nighttime */}
+
+      <span className="card__icon">☀️</span>
+      {/* TODO: Toggle ☀️ or 🌙 based on the time and make it clickable */}
+
       <h1 className="card__city">{city.name}</h1>
-      {/* Render the the name of the country and style it using the card__country class */}
+      {/* TODO: Render the country using an <h2> with the 'card__country' class */}
+
+      
       <p className="card__time">{time}</p>
       <p className="card__temperature">{city.temperature}&deg; C</p>
     </article>
