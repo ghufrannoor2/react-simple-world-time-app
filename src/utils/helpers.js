@@ -6,15 +6,22 @@ export const TIME_INTERVAL = 15_000;
 
 /**
  *
- * @param {string} curTimeStr
- * @param {SunriseSunset} sunriseSunset
+ * @param {string} curTimeStr - The current time in the format hh:mm AM/PM
+ * @param {SunriseSunset} sunriseSunset - The sunrise and sunset times from the dummy data
  */
 export function isDay(curTimeStr, sunriseSunset) {
-  const curTime = convertTo24HrTimeInMinutes(curTimeStr);
-  const sunrise = convertTo24HrTimeInMinutes(sunriseSunset.sunrise);
-  const sunset = convertTo24HrTimeInMinutes(sunriseSunset.sunset);
+  return Math.random() > 0.5;
 
-  return curTime >= sunrise && curTime < sunset;
+  /*
+    Below is the correct implementation of isDay() but it will not work currently as the 
+    convertTo24HrTimeInMinutes() function is not fully implemented, please complete its implementation
+    and uncomment the the code below to finish the app.
+  */
+
+  // const curTime = convertTo24HrTimeInMinutes(curTimeStr);
+  // const sunrise = convertTo24HrTimeInMinutes(sunriseSunset.sunrise);
+  // const sunset = convertTo24HrTimeInMinutes(sunriseSunset.sunset);
+  // return curTime >= sunrise && curTime < sunset;
 }
 
 /**
@@ -22,20 +29,11 @@ export function isDay(curTimeStr, sunriseSunset) {
  * @param {string} timeStr time in 12 hr notation -> hh:mm AM/PM
  * @returns {number} total time elapsed since 12:00 AM in minutes
  */
-function convertTo24HrTimeInMinutes(timeStr) {
+export function convertTo24HrTimeInMinutes(timeStr) {
   const matches = timeStr.match(TIME_REGEX);
-  const hours = Number(matches[1]);
-  const minutes = Number(matches[2]);
-  const period = matches[3];
+  const hours = Number(matches[1]); // 1-12
+  const minutes = Number(matches[2]); // 0-60
+  const period = matches[3]; // "AM" or "PM"
 
-  let totalHours = 0;
-  if (hours !== 12) {
-    totalHours = hours;
-  }
-  if (period === "PM") {
-    totalHours += 12;
-  }
-  let totalMinutes = minutes + totalHours * 60;
-
-  return totalMinutes;
+  // Complete the implementation ...
 }

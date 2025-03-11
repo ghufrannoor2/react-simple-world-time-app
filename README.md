@@ -1,162 +1,65 @@
-# Task: City Time Cards with Day/Night Visualization
+# Intern Coding Task
 
-## Objective
+## Overview
 
-Create a responsive application that displays cards for different cities around the world, showing their current time and visualizing whether it's day or night in each location.
+Welcome to the intern coding challenge! Your task is to complete the unfinished implementation of a **world city time display application**. This application fetches city data and dynamically displays the time and temperature for various locations.
 
-## Requirements
+## Setup Instructions
 
-1. Create a UI with the following elements:
+To run the project locally, follow these steps:
 
-   - A grid of city cards (minimum 4 cities across different time zones)
-   - Each card should display:
-     - City name and country
-     - Current local time (updating in real-time)
-     - Visual indication of day/night status
-     - Current temperature (use provided mock data)
-   - A button to add a new city from a dropdown list
+1. **Install dependencies:**
 
-2. Functionality:
+   ```sh
+   npm install
+   ```
 
-   - Time should update every minute (or more frequently)
-   - Day/night visualization should be based on sunrise/sunset times for each city
-   - Background or visual elements should change based on day/night status
-   - Clicking on a city card should expand it to show more details (weather conditions, timezone info, etc.)
+2. **Run the development server:**
+   ```sh
+   npm run dev
+   ```
 
-3. Design:
-   - Create a clean, modern interface with appropriate visual cues
-   - Use animations or transitions for day/night state changes
-   - Ensure the UI is responsive and looks good on mobile devices
-   - Use appropriate iconography for weather and time indicators
+## Main Tasks (Priority)
 
-## Mockup
+These are the core tasks you need to complete first:
 
-```
- ┌──────────────────────────────────────────────┐
- │     ┌─────────────┐     ┌─────────────┐      │
- │     │ 🌙          │     │ ☀️          │      │
- │     │ New York    │     │ London      │      │
- │     │ USA         │     │ UK          │      │
- │     │             │     │             │      │
- │     │ 1:45 AM     │     │ 6:45 AM     │      │
- │     │ 5°C         │     │ 11°C        │      │
- │     └─────────────┘     └─────────────┘      │
- │                                              │
- │     ┌─────────────┐     ┌─────────────┐      │
- │     │ ☀️          │     │ 🌙          │      │
- │     │ Tokyo       │     │ Sydney      │      │
- │     │ Japan       │     │ Australia   │      │
- │     │             │     │             │      │
- │     │ 2:45 PM     │     │ 4:45 PM     │      │
- │     │ 20°C        │     │ 25°C        │      │
- │     └─────────────┘     └─────────────┘      │
- └──────────────────────────────────────────────┘
-```
+### 1. Render City Data in `App.jsx`
 
-## Expanded Card View (when clicked)
+- The `CITY_DATA` list is provided in `data.js`.
+- Your task is to render each city using the `Card` component.
+- Ensure that each city’s data is displayed correctly.
 
-```
- ┌─────────────────────────────────────────────────┐
- │ ☀️                                               │
- │ London, UK                                      │
- │                                                 │
- │ Current Time: 6:45 AM                           │
- │ Temperature: 52°F                               │
- │ Weather: Partly Cloudy                          │
- │ Sunrise: 5:12 AM                                │
- │ Sunset: 8:45 PM                                 │
- │ Timezone: GMT+0                                 │
- │                                                 │
- │                     [Close]                     │
- └─────────────────────────────────────────────────┘
-```
+### 2. Implement Dynamic Day/Night Theme in `helpers.js`
 
-## Sample Data
+- Use the `isDay` function from `helpers.js` to determine whether it is daytime or nighttime.
+- Create a state variable to store whether it is daytime or not.
+- Conditionally apply the `card--dark` class for nighttime.
+- Display the sun ☀️ or moon 🌙 icon based on the current time.
+- Clicking the icon should toggle the theme.
 
-```javascript
-// Sample data for city cards
-const cityData = [
-  {
-    id: 1,
-    name: "New York",
-    country: "USA",
-    timezone: "America/New_York",
-    temperature: 5,
-    sunriseSunset: {
-      sunrise: "6:15 AM",
-      sunset: "7:30 PM",
-    },
-  },
-  {
-    id: 2,
-    name: "London",
-    country: "UK",
-    timezone: "Europe/London",
-    temperature: 11,
-    sunriseSunset: {
-      sunrise: "5:12 AM",
-      sunset: "8:45 PM",
-    },
-  },
-  {
-    id: 3,
-    name: "Tokyo",
-    country: "Japan",
-    timezone: "Asia/Tokyo",
-    temperature: 20,
-    sunriseSunset: {
-      sunrise: "4:30 AM",
-      sunset: "6:15 PM",
-    },
-  },
-  {
-    id: 4,
-    name: "Sydney",
-    country: "Australia",
-    timezone: "Australia/Sydney",
-    temperature: 25,
-    sunriseSunset: {
-      sunrise: "6:30 AM",
-      sunset: "7:45 PM",
-    },
-  },
-  {
-    id: 5,
-    name: "Dubai",
-    country: "UAE",
-    timezone: "Asia/Dubai",
-    temperature: 33,
-    sunriseSunset: {
-      sunrise: "5:45 AM",
-      sunset: "7:00 PM",
-    },
-  },
-  {
-    id: 6,
-    name: "Rio de Janeiro",
-    country: "Brazil",
-    timezone: "America/Sao_Paulo",
-    temperature: 28,
-    sunriseSunset: {
-      sunrise: "5:50 AM",
-      sunset: "6:30 PM",
-    },
-  },
-];
-```
+### 3. Display the Country in `Card.jsx`
 
-## Evaluation Criteria
+- The `Card` component currently does not display the country name.
+- Modify it to show the country in a visually appropriate manner.
 
-- Accurate implementation of time calculations across different timezones
-- Creative and effective day/night visualization
-- Clean, well-organized React component structure
-- Proper state management
-- Responsive design and thoughtful UI/UX
-- Smooth transitions and animations
-- Code organization and maintainability
+## Optional/Bonus Tasks
 
-## Notes
+If you complete the main tasks quickly, consider these additional improvements:
 
-- You may expand upon the provided data with additional details if needed
-- Focus on the visual representation of day vs. night
-- You can use any UI library or create your own components
+### 1. Add Hover Effects to `.card__icon`
+
+- Improve the UI by adding styles to `.card__icon`:
+  - Make the cursor a pointer.
+  - Increase size to **1.5x** when hovered.
+  - Ensure a smooth transition effect.
+
+### 2. Fix the Implementation of `isDay()`
+
+- The `isDay()` function currently returns `true` or `false` randomly.
+- The correct implementation of `isDay()` is already present in the function but is currently commented out.
+- It depends on `convertTo24HrTimeInMinutes`, which has not been fully implemented.
+- Complete `convertTo24HrTimeInMinutes`, then uncomment and use the correct `isDay()` logic.
+- Test that your implementation is correct by running:
+  ```sh
+  npm run test
+  ```

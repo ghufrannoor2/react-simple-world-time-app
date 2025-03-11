@@ -16,7 +16,6 @@
   background-color: #339af0;
 
   color: #ebf5fe;
-  cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
 
@@ -24,79 +23,11 @@
   background-color: #0f2e48;
 }
 
-.card:not(.card--expanded):hover {
+.card:hover {
   transform: scale(1.05);
 }
 
 .card__icon {
   font-size: 5rem;
   margin-bottom: 3rem;
-}
-
-.card__backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(15, 46, 72, 0.7);
-}
-
-.card--expanded {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 40rem;
-  height: auto;
-  cursor: unset;
-}
-
-body:has(.card--expanded) {
-  overflow-y: hidden;
-}
-
-.card--expanded .card__icon {
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
-.card--expanded .card__icon:hover {
-  transform: scale(1.5);
-}
-
-.btn {
-  text-transform: uppercase;
-  padding: 1.6rem 2rem;
-  background-color: #ebf5fe;
-  color: #339af0;
-  margin-top: 3rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-}
-
-.btn:hover {
-  filter: brightness(90%);
-}
-
-.btn:active {
-  filter: brightness(80%);
-}
-
-.btn--dark {
-  background-color: #339af0;
-  color: #ebf5fe;
-}
-
-.btn--dark:hover {
-  filter: brightness(120%);
-}
-
-.btn--dark:active {
-  filter: brightness(130%);
 }
